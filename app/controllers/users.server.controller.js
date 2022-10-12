@@ -2,8 +2,9 @@ const mongoose = require('../../config/mongoose');
 const User = require('../models/user.server.model')
 
 exports.create = function (req, res, next) {
+    console.log('test');
     let dudu = {
-        firstname: "Dudu",
+        firstname: "Dudusssss",
         lastname: "Missono",
         email: "eduartem@my.centennialcollege.ca",
         username: "dudumissono",
@@ -21,6 +22,7 @@ exports.create = function (req, res, next) {
             res.status(200).json(user);
         }
     });
+
 }
 
 exports.list = function (req, res, next) {
@@ -29,7 +31,11 @@ exports.list = function (req, res, next) {
         if (err) {
             return next(err);
         } else {
-            res.status(200).json(users)
+            // res.status(200).json(users)
+            res.render('users', {
+                title: 'Hello Mr. Wick',
+                description: users
+            })
         }
     })
 }
